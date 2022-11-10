@@ -1,0 +1,43 @@
+<div class="card-main">
+  <div class="card-container">
+    <div class="card-title">
+      <div class="title">
+        <h2>{{ myCourse.name | titlecase }}</h2>
+        <span [ngClass]="myCourse.isTopRated ? 'material-icons rated' : 'none'">
+          star_rate
+        </span>
+      </div>
+      <div class="card-date">
+        <p>
+          <span class="material-icons"> schedule </span>
+
+          {{ myCourse.length | timePipe }}
+        </p>
+        <p [appStyle2]="myCourse">
+          <span class="material-icons"> calendar_today </span>
+
+          {{ myCourse.date | date: "d MMM, YYYY" }}
+        </p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-body-text">
+        <p>
+          {{ myCourse.description }}
+        </p>
+      </div>
+      <div class="card-buttons">
+        <a [routerLink]="['/edit-course', myCourse.id]">
+          <button>
+            <span class="material-icons icons-btn"> edit </span>
+            Edit
+          </button></a
+        >
+        <button style="width: 70px" (click)="removeCourse(myCourse.id)">
+          <span class="material-icons icons-btn"> delete </span>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

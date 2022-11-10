@@ -1,0 +1,151 @@
+<div class="main">
+  <section class="breadcrumbs">
+    <div class="container">
+      <p>
+        <span class="course-br">Courses </span>
+        <b class="colored">/</b>
+        <b> Edit Course </b> <b class="colored">/</b> <b> {{ post.name }}</b>
+      </p>
+    </div>
+  </section>
+  <div class="add-course">
+    <div class="container1">
+      <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+        <h2 class="add-course-title">Edit Course</h2>
+
+        <div class="add-course-text">
+          <div class="add-course-card">
+            <span class="add-course-item">Title:</span>
+            <span class="required">*required</span>
+          </div>
+          <div
+            class="validation"
+            *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+          >
+            <small *ngIf="form.get('name')?.errors?.['required']"
+              >This field can not be empty.</small
+            >
+            <small *ngIf="form.get('name')?.errors?.['maxlength']"
+              >Please enter no more then 50 symbols.</small
+            >
+          </div>
+          <input
+            type="text"
+            placeholder="Add Title"
+            class="add-course-input"
+            formControlName="name"
+            required
+          />
+
+          <div class="add-course-card">
+            <span class="add-course-item">Description:</span>
+            <span class="required">*required</span>
+          </div>
+          <div
+            class="validation"
+            *ngIf="
+              form.get('description')?.invalid &&
+              form.get('description')?.touched
+            "
+          >
+            <small *ngIf="form.get('description')?.errors?.['required']"
+              >This field can not be empty.</small
+            >
+            <small *ngIf="form.get('description')?.errors?.['maxlength']"
+              >Please enter no more then 500 symbols.</small
+            >
+          </div>
+          <input
+            type="text"
+            placeholder="Add Description"
+            class="add-course-input description"
+            formControlName="description"
+            required
+          />
+        </div>
+
+        <div class="add-course-date">
+          <div class="add-course-card">
+            <span class="add-course-item">Duration:</span>
+            <span class="required">*required</span>
+          </div>
+          <div
+            class="validation"
+            *ngIf="form.get('length')?.invalid && form.get('length')?.touched"
+          >
+            <small *ngIf="form.get('length')?.errors?.['required']"
+              >This field can not be empty.</small
+            >
+          </div>
+          <div class="duration">
+            <input
+              type="number"
+              placeholder="minutes"
+              class="add-course-input"
+              formControlName="duration"
+              (input)="showDuration($event)"
+              style="width: 67%; margin-right: 15px"
+              required
+            />
+            <p>{{ durationCourse | timePipe }}</p>
+          </div>
+
+          <div class="add-course-card">
+            <span class="add-course-item">Date:</span>
+            <span class="required">*required</span>
+          </div>
+          <div
+            class="validation"
+            *ngIf="form.get('date')?.invalid && form.get('date')?.touched"
+          >
+            <small *ngIf="form.get('date')?.errors?.['required']"
+              >This field can not be empty.</small
+            >
+          </div>
+          <input
+            type="date"
+            placeholder="Add Title"
+            class="add-course-input"
+            formControlName="date"
+            required
+          />
+        </div>
+
+        <div class="add-course-authors">
+          <div class="add-course-card">
+            <span class="add-course-item">Authors:</span>
+            <span class="required">*required</span>
+          </div>
+          <div
+            class="validation"
+            *ngIf="form.get('authors')?.invalid && form.get('authors')?.touched"
+          >
+            <small *ngIf="form.get('authors')?.errors?.['required']"
+              >This field can not be empty.</small
+            >
+          </div>
+          <input
+            type="text"
+            placeholder="Add Author"
+            class="add-course-input"
+            formControlName="authors"
+            required
+          />
+        </div>
+
+        <div class="add-course-card bottom">
+          <button class="cancel-btn" type="button" [routerLink]="['/']">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            [disabled]="form.invalid"
+            [ngClass]="form.valid ? 'button' : 'disabled'"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

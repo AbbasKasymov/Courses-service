@@ -1,0 +1,107 @@
+.card-main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 140px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(29, 30, 38, 0.1),
+    0 2px 10px 0 rgba(29, 30, 38, 0.15);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.card-container {
+  width: 1110px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.card-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rated {
+  margin-left: 10px;
+  color: gold;
+}
+.none {
+  display: none;
+}
+
+.card-date {
+  display: flex;
+  width: 210px;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.card-date p {
+  color: #858997;
+  font-size: 13px;
+  padding: 4px;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.card-date span {
+  font-size: 16px;
+}
+
+.card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-body-text {
+  width: 876%;
+}
+.card-body-text p {
+  color: #474a59;
+  font-size: 14px;
+}
+.card-buttons {
+  width: 209px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card-buttons button {
+  height: 24px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  background: #009ecc;
+  width: 60px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.icons-btn {
+  font-size: 14px;
+}
+h2 {
+  font-size: 24px;
+  color: #333333;
+}
+.icon-img {
+  width: 10px;
+  color: green;
+}

@@ -1,0 +1,17 @@
+.whole-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-sticky {
+  width: 100%;
+  top: 91vh;
+  position: fixed;
+}
+
+.header-sticky {
+  width: 100%;
+  position: static;
+}

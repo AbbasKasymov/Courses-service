@@ -1,0 +1,43 @@
+<div class="courses-info">
+  <section class="breadcrumbs">
+    <div class="container">
+      <h3>Courses</h3>
+    </div>
+  </section>
+  <div class="container">
+    <div class="search">
+      <input
+        type="text"
+        placeholder="Type to search"
+        [(ngModel)]="search"
+        name="inputData"
+      />
+    </div>
+
+    <div class="add-course">
+      <button (click)="goToAddCoursePage()">
+        <span class="material-icons course-btn"> add_circle_outline </span>
+        Add course
+      </button>
+    </div>
+    <div *ngIf="!courses.loading; else loadingBlock">
+      <app-cards
+        *ngFor="let course of courses.posts | orderBy1 | filter: search"
+        [myCourse]="course"
+      ></app-cards>
+      <div *ngIf="courses.posts | filter: search as data">
+        <div class="load-more" *ngIf="data.length">
+          <button class="btn-click" (click)="loadMore()">LOAD MORE</button>
+          <ng-container *ngIf="courses.posts | filter: search as data">
+            <div class="no-data-info" *ngIf="!data.length">
+              <p>No data. Feel free to add course!</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <ng-template #loadingBlock>
+      <p>Loading...</p>
+    </ng-template>
+  </div>
+</div>

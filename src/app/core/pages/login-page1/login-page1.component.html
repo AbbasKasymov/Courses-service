@@ -1,0 +1,72 @@
+<div class="main">
+  <div class="login-window">
+    <div class="container">
+      <form [formGroup]="form" (ngSubmit)="submit()" class="form">
+        <h2 class="login-title">Login</h2>
+
+        <div class="login-card">
+          <span class="card-item">Email:</span>
+
+          <span class="required">*required</span>
+        </div>
+        <div
+          class="validation"
+          *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+        >
+          <small *ngIf="form.get('email')?.errors?.['required']"
+            >This field can not be empty.</small
+          >
+          <small *ngIf="form.get('email')?.errors?.['email']"
+            >Please enter correct email address.</small
+          >
+          <small *ngIf="form.get('email')?.errors?.['restrictedEmails']"
+            >Email {{ form.get("email")?.value }} is not assignable.</small
+          >
+        </div>
+        <input
+          type="email"
+          placeholder="example@mail.com"
+          class="login-input"
+          formControlName="email"
+        />
+
+        <div class="login-card">
+          <span class="card-item">Password:</span>
+
+          <span class="required">*required</span>
+        </div>
+        <div
+          class="validation"
+          *ngIf="form.get('password')?.invalid && form.get('password')?.touched"
+        >
+          <small *ngIf="form.get('password')?.errors?.['required']"
+            >This field can not be empty.</small
+          >
+          <small *ngIf="form.get('password')?.errors?.['minlength']"
+            >Length of password should be no less then
+            {{ form.get("password")?.errors?.["minlength"].requiredLength }}
+            symbols. Now quantity of symbols is
+            {{ form.get("password")?.errors?.["minlength"].actualLength }}.
+          </small>
+        </div>
+        <input
+          type="text"
+          placeholder="************"
+          class="login-input"
+          formControlName="password"
+        />
+
+        <div class="login-card bottom">
+          <span>Forgot your password?</span>
+          <button
+            type="submit"
+            [disabled]="form.invalid"
+            [ngClass]="form.valid ? 'button' : 'disabled'"
+          >
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
